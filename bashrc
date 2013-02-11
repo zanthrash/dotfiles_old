@@ -31,9 +31,14 @@ source ~/bin/dotfiles/bash/aliases
 
 [ -r  ~/.grails_bash_complete.sh ] && source ~/.grails_bash_complete.sh
 source ~/.bash_dont_think.sh
-source ~/.bash_ps1
+#source ~/.bash_ps1
+source ~/bin/dotfiles/bash/bash_prompt
 source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/git-flow-completion.bash
+
+# init z   https://github.com/rupa/z
+. ~/code/z/z.sh
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/zanthrash/.gvm/bin/gvm-init.sh" ]] && source "/Users/zanthrash/.gvm/bin/gvm-init.sh"

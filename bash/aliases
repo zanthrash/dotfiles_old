@@ -31,8 +31,10 @@ alias msgmove='cp ~/.grails/2.1.0/projects/mobile-application/tomcat/work/Tomcat
 alias stash='git stash'
 alias unstash='git stash pop'
 
-#alias ..="pushd .."
-#alias ...="pushd ../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias vw="pushd ~/work/virtuwell"
 alias buyer="pushd ~/work/dealcurious/buyer-curious"
