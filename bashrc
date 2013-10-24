@@ -39,6 +39,15 @@ source /usr/local/etc/bash_completion.d/git-flow-completion.bash
 # init z   https://github.com/rupa/z
 . ~/code/z/z.sh
 
+function grailsTestOrder() {
+    grep testsuite target/test-reports/TESTS-TestSuites.xml | grep -v testsuites | cut -d\  -f8-9 | sed -E 's/name="(.*)" package="(.*)"/\2.\1/' | grep .
+}
+ 
+alias testorder=grailsTestOrder
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/zanthrash/.gvm/bin/gvm-init.sh" ]] && source "/Users/zanthrash/.gvm/bin/gvm-init.sh"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
