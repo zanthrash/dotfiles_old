@@ -1,0 +1,7 @@
+--type-set=eiffel=.e,.eiffel
+--type-set=grails=.gsp,.groovy
+--type-set=groovy=.groovy
+--type-set=gsp=.gsp
+--type-set=coffee=.coffee
+--type-set=sass=.sass,.scss
+
