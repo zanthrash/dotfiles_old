@@ -52,6 +52,7 @@ set directory=~/.vim/tmp/swap//
 if &t_Co >= 256 || has("gui_running")
     set relativenumber
     set undofile
+    set guioptions-=T
 endif
 
 let mapleader = ","
@@ -88,7 +89,7 @@ inoremap jj <ESC>
 
 nnoremap <leader>w <C-w>v<C-w>l
 
-nnoremap <C-h> <C-W>h
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -119,4 +120,6 @@ map <leader>tl :TlistToggle<CR>
 let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 let Tlist_Show_One_File=1
 
+" EasyMotion
+let g:EasyMotion_leader_key = '<Leader><Leader>'
 
