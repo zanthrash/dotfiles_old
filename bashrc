@@ -25,19 +25,19 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-source ~/bin/dotfiles/bash/env
-source ~/bin/dotfiles/bash/config
-source ~/bin/dotfiles/bash/aliases
+source ~/dotfiles/bash/env
+source ~/dotfiles/bash/config
+source ~/dotfiles/bash/aliases
 
 [ -r  ~/.grails_bash_complete.sh ] && source ~/.grails_bash_complete.sh
 source ~/.bash_dont_think.sh
 #source ~/.bash_ps1
-source ~/bin/dotfiles/bash/bash_prompt
+source ~/dotfiles/bash/bash_prompt
 source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/git-flow-completion.bash
 
 # init z   https://github.com/rupa/z
-. ~/code/z/z.sh
+# . ~/code/z/z.sh
 
 function grailsTestOrder() {
     grep testsuite target/test-reports/TESTS-TestSuites.xml | grep -v testsuites | cut -d\  -f8-9 | sed -E 's/name="(.*)" package="(.*)"/\2.\1/' | grep .

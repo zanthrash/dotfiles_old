@@ -42,12 +42,14 @@ PATH=$PATH:$LIB_HOME
 export LIB_HOME PATH
 
 ## PYTHON
-export PYTHON_HOME=/usr/local/share/python
-export PYTHON_PACKAGES=~/usr/local/lib/python2.7/site-packages
-PATH=$PATH:$PYTHON_HOME
-export PYTHON_HOME PATH
+# export PYTHON_HOME=/usr/local/share/python
+# export PYTHON_PACKAGES=~/usr/local/lib/python2.7/site-packages
+# PATH=$PATH:$PYTHON_HOME
+# export PYTHON_HOME PATH
 
 ## JMeter
 export JMETER_HOME=~/work/apache-jmeter-2.9
 PATH=$PATH:$JMETER_HOME/bin
 export JMETER_HOME PATH
+
+export PATH="/usr/local/bin:$PATH"

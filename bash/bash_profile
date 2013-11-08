@@ -1,4 +1,4 @@
-source ~/bin/dotfiles/bashrc
+source ~/dotfiles/bashrc
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/zanthrash/.gvm/bin/gvm-init.sh" ]] && source "/Users/zanthrash/.gvm/bin/gvm-init.sh"
