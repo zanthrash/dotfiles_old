@@ -41,14 +41,22 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow bower brew coffee gradle grails history-substring-search jira npm osx sublime vi-mode web-search zsh-syntax-highlighting)
+plugins=(git git-flow git-extras bower brew coffee gradle grails jira npm osx sublime vi-mode web-search z zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
 
+# bindkey "$terminfo[kcuu1]" history-substring-search-up
+# bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # Customize to your needs...
+
+. `brew --prefix`/etc/profile.d/z.sh
+
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/zanthrash/.gvm/vertx/current/bin:/Users/zanthrash/.gvm/springboot/current/bin:/Users/zanthrash/.gvm/lazybones/current/bin:/Users/zanthrash/.gvm/groovyserv/current/bin:/Users/zanthrash/.gvm/groovy/current/bin:/Users/zanthrash/.gvm/griffon/current/bin:/Users/zanthrash/.gvm/grails/current/bin:/Users/zanthrash/.gvm/gradle/current/bin:/Users/zanthrash/.gvm/gaiden/current/bin
 
 

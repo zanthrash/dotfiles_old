@@ -82,9 +82,13 @@ alias ngmain='yo grails-angular:main'
 
 #projects
 alias devnet='cd ~/work/devnet && gvm use grails 2.1.1'
+alias vouuch='cd ~/work/vouuch'
 alias vwreports='vw && cd reports-application && gvm use grails 2.1.0'
 alias vwmobile='vw && cd mobile-application && gvm use grails 2.1.0'
 alias vwprovider='vw && cd provider-application && gvm use grails 2.1.0'
 alias vwpatient='vw && cd patient-application && gvm use grails 2.1.0'
 alias vwstm='vw && cd scheduled-task-manager && gvm use grails 2.1.0'
 alias plove='vw && cd plove && gvm use grails 2.1.0'
+alias spocktalk='cd ~/Documents/Presentations/spock_sf_gug && grunt serve'
+
+# eval "$(hub alias -s)"

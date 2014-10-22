@@ -5,7 +5,6 @@ set t_Co=256
 set background=dark
 colorscheme mustang "solarized
 
-
 " filetype off 
 call pathogen#infect()
 syntax on
@@ -39,7 +38,7 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set nobackup
+"set nobackup
 set noswapfile
 set clipboard=unnamed
 

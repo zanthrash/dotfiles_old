@@ -1,5 +1,5 @@
-#export EDITOR="mvim -f"
-export EDITOR="subl"
+export EDITOR="mvim -f"
+#export EDITOR="subl"
 export SVN_EDITOR=vim
 export PATH=./node_modules/.bin:$PATH
 export JAVA_OPTS="-XX:PermSize=384m -XX:MaxPermSize=384m -XX:NewSize=256m -Xmx2048m"
@@ -28,11 +28,12 @@ PATH=$PATH:$MYSQL_HOME/bin
 export MYSQL_HOME PATH
 
 ### Tomcat
+export TOMCAT_HOME=/usr/local/Cellar/tomcat/7.0.54/libexec
 export CATILINA_HOME=/usr/local/tomcat
 export JAVA_HOME=/Library/Java/Home
 
 ### Gradle
-export GRADLE_HOME=/usr/local/gradle
+export GRADLE_HOME=/Users/zanthrash/.gvm/gradle/current
 PATH=$PATH:$GRADLE_HOME/bin
 export GRADLE_HOME PATH
 
