@@ -62,5 +62,4 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/zanthrash/
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/zanthrash/.gvm/bin/gvm-init.sh" ]] && source "/Users/zanthrash/.gvm/bin/gvm-init.sh"
-[[ -s /Users/zanthrash/.nvm/nvm.sh ]] && . /Users/zanthrash/.nvm/nvm.sh # This loads NVM
+[[ -s "/Users/zthrash/.gvm/bin/gvm-init.sh" ]] && source "/Users/zthrash/.gvm/bin/gvm-init.sh"

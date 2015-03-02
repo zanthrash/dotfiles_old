@@ -1,4 +1,4 @@
-export EDITOR="mvim -f"
+export EDITOR="vim"
 #export EDITOR="subl"
 export SVN_EDITOR=vim
 export PATH=./node_modules/.bin:$PATH
@@ -8,9 +8,10 @@ export JAVA_OPTS="-XX:PermSize=384m -XX:MaxPermSize=384m -XX:NewSize=256m -Xmx20
 export GRAILS_OPTS="-server -noverify -XX:PermSize=512m -XX:MaxPermSize=512m -Xmx2048M -Xms2048M -XX:+UseParallelGC -Djava.net.preferIPv4Stack=true -Dsun.reflect.inflationThreshold=100000"
 
 ### JAVA
-export JAVA_HOME="/usr/libexec/java_home -v '1.7*'"
-#PATH=$PATH:$JAVA_HOME
-#export JAVA_HOME PATH
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_72`
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_72.jdk/Contents/Home
+PATH=$PATH:$JAVA_HOME
+export JAVA_HOME PATH
 
 ### Groovy
 GROOVY_HOME=/usr/local/groovy
@@ -33,9 +34,9 @@ export CATILINA_HOME=/usr/local/tomcat
 export JAVA_HOME=/Library/Java/Home
 
 ### Gradle
-export GRADLE_HOME=/Users/zanthrash/.gvm/gradle/current
-PATH=$PATH:$GRADLE_HOME/bin
-export GRADLE_HOME PATH
+#export GRADLE_HOME=/Users/zanthrash/.gvm/gradle/current
+#PATH=$PATH:$GRADLE_HOME/bin
+#export GRADLE_HOME PATH
 
 ### JAVA JARS
 export LIB_HOME=~/work/lib
@@ -54,3 +55,10 @@ PATH=$PATH:$JMETER_HOME/bin
 export JMETER_HOME PATH
 
 export PATH="/usr/local/bin:$PATH"
+
+## golang
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/work/go
+export PATH=$GOPATH/bin:$PATH
+
+

@@ -24,9 +24,13 @@
     tool = kdiff3
 [alias]
     co = checkout
-	st = status -sb
+    st = status -sb
     ci = commit
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    sync = pull --rebase upstream master
+    feature = checkout -b
+    pushFeature = push -u origin
+    killFeature = !sh -c 'git branch -D $1 && git push origin --delete $1' -
 [brach]
 	autosetuprebase = always
 [difftool "sourcetree"]
@@ -40,3 +44,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[credential]
+	helper = osxkeychain

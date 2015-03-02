@@ -1,16 +1,18 @@
 set nocompatible
 
+
+" filetype off
+execute pathogen#infect()
+syntax on
+" call pathogen#helptags()
+" call pathogen#surround()
+filetype plugin indent on
+
 syntax enable
 set t_Co=256
 set background=dark
-colorscheme mustang "solarized
+colorscheme mustang
 
-" filetype off 
-call pathogen#infect()
-syntax on
- call pathogen#helptags()
- call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
 
 set modelines=0
 
@@ -101,7 +103,7 @@ let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 map <leader>t :CommandT<cr>
 
 " Ack
-map <leader>a :Ack 
+map <leader>a :Ack
 
 " Yankring
 nnoremap <silent> <leader>y :YRShow<cr>
@@ -121,4 +123,3 @@ let Tlist_Show_One_File=1
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader><Leader>'
-

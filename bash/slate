@@ -1,0 +1,104 @@
+# This is the default .slate file.
+# If no ~/.slate file exists this is the file that will be used.
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# General aliases
+alias sox screenOriginX
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+
+# Monitor Aliases
+alias mon-laptop 1440x900
+alias mon-dell 2560x1440
+alias mon-cinema 2560x1400
+
+# Position aliases
+alias centered ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
+alias fullscreen ${sox};${soy} ${ssx};${ssy}
+alias leftHalf ${sox};${soy} ${ssx}/2;${ssy}
+alias bottomHalf ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias topHalf ${sox};${soy} ${ssx};${ssy}/2
+alias rightHalf ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias topLeftQuarter ${sox};${soy} ${ssx}/2;${ssy}/2
+alias topRightQuarter ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bottomLeftQuarter ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias leftTwoThirds ${sox};${soy} (${ssx}/3)*2;${ssy}
+alias rightThird ${sox}+(${ssx}/3)*2;${soy} ${ssx}/3;${ssy}
+
+# Concrete positions
+alias 1-full move ${fullscreen} ${mon-laptop}
+alias 1-right move ${rightHalf} ${mon-laptop}
+alias 1-left move ${leftHalf} ${mon-laptop}
+
+alias 2-full move ${fullscreen} ${mon-dell}
+alias 2-right move ${rightHalf} ${mon-dell}
+alias 2-left move ${leftHalf} ${mon-dell}
+alias 2-topRightQuarter move ${topRightQuarter} ${mon-dell}
+alias 2-bottomRightQuarter move ${bottomRightQuarter} ${mon-dell}
+
+alias 3-full move ${fullscreen} ${mon-cinema}
+alias 3-right move ${rightHalf} ${mon-cinema}
+alias 3-left move ${leftHalf} ${mon-cinema}
+
+# Reload Binding
+bind a:f19 relaunch
+
+# Move bindings
+bind g:f19 move ${centered}
+bind o:f19 move ${fullscreen}
+bind h:f19 move ${leftHalf}
+bind l:f19 move ${rightHalf}
+bind k:f19 move ${topHalf}
+bind u:f19 move ${topLeftQuarter}
+bind i:f19 move ${topRightQuarter}
+bind n:f19 move ${topLeftQuarter}
+bind u:f19 move ${topLeftQuarter}
+
+bind ;:f19 throw previous
+
+# Applicaton Config
+alias browser 'Google Chrome'
+alias ide 'IntelliJ IDEA'
+alias mailbox 'Mailbox (Beta)'
+
+# 1 Monitor Layout
+layout 1monitor 'iTerm':REPEAT     ${1-full}
+layout 1monitor ${browser}:REPEAT     ${1-full}
+layout 1monitor ${ide}:REPEAT     ${1-full}
+layout 1monitor ${mailbox}:REPEAT     ${1-full}
+layout 1monitor 'HipChat':REPEAT     ${1-full}
+layout 1monitor 'Tweetbot':REPEAT     ${1-full}
+layout 1monitor 'Dash':REPEAT     ${1-full}
+
+# 3 Monitor Layout
+layout 3monitor ${mailbox}:REPEAT     ${1-full}
+layout 3monitor 'Tweetbot':REPEAT     ${1-full}
+layout 3monitor 'Dash':REPEAT     ${1-full}
+kjdd
+layout 3monitor ${ide}:REPEAT     ${2-left}
+layout 3monitor 'iTerm':REPEAT      ${2-topRightQuarter}
+layout 3monitor 'HipChat':REPEAT     ${2-bottomRightQuarter}
+
+layout 3monitor ${browser}:REPEAT     ${3-full}
+
+
+default 1monitor resolutions:${mon-laptop}
+default 3monitor resolutions:${mon-laptop};${mon-dell};${mon-cinema}
+
+# Monitor Setup Bindings
+bind 1:f19 layout 1monitor
+bind 2:f19 layout 3monitor
+
+
+# Window Hints
+bind esc:cmd hint

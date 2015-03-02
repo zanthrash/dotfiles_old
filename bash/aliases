@@ -3,6 +3,7 @@ alias ealias='subl ~/dotfiles/bash/aliases'
 alias reloadalias='source ~/dotfiles/bash/aliases'
 alias eenv='subl ~/dotfiles/bash/env'
 alias reloadenv='source ~/dotfiles/bash/env'
+alias eslate='vim ~/dotfiles/bash/slate'
 
 alias k9="kill -9"
 alias ggg="echo ggg to line"
@@ -11,7 +12,7 @@ alias gta="grails test-app"
 alias gtu="grails test-app unit:"
 alias gti="grails test-app integration:"
 alias vi="mvim -v"
-alias vim="mvim -v"
+# alias vim="mvim -v"
 alias gdra="grails-debug run-app"
 alias gdta="grails-debug test-app"
 alias gra="grails run-app"
@@ -24,7 +25,7 @@ alias f='pushd -0'
 alias goto_it='ssh zthrash@it.int.objectpartners.com'
 alias sqlprofiler='java -jar ~/work/sqlprofiler-0.3-bin/sqlprofiler.jar'
 alias jur='open target/test-reports/html/index.html'
-
+alias pr='hub pull-request'
 
 alias msgmove='cp ~/.grails/2.1.0/projects/mobile-application/tomcat/work/Tomcat/localhost/_/jawrTmp/text/i18n/messages.js ~/work/virtuwell/mobile-application/web-app/js/i18n/'
 
@@ -69,6 +70,7 @@ function switchJava() {
 
 alias java6='switchJava "1.6*"'
 alias java7='switchJava "1.7*"'
+alias java8='switchJava "1.8*"'
 
 #yoeman
 alias ngcontroller='yo grails-angular:controller'
