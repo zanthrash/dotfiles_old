@@ -18,8 +18,12 @@ alias ssy screenSizeY
 
 # Monitor Aliases
 alias mon-laptop 1440x900
-alias mon-dell 2560x1440
-alias mon-cinema 2560x1400
+alias mon-dell 3008x1692
+alias mon-dell-wide 3440x1440
+alias mon-cinema 2560x1440
+
+# Smash Key Mapping alias
+alias smash cmd;alt;ctrl;shift
 
 # Position aliases
 alias centered ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
@@ -34,6 +38,13 @@ alias bottomLeftQuarter ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 alias leftTwoThirds ${sox};${soy} (${ssx}/3)*2;${ssy}
 alias rightThird ${sox}+(${ssx}/3)*2;${soy} ${ssx}/3;${ssy}
+
+# Positions for Dell wide monitor (uses 18ths for a grid)
+alias middleWide ${sox}+(${ssx}/18)*5;${soy} (${ssx}/18)*8;${ssy}
+alias topRightQuarterWide ${sox}+(${ssx}/18)*13;${soy} (${ssx}/18)*5;${ssy}/2
+alias bottomRightQuarterWide ${sox}+(${ssx}/18)*13;${soy}+${ssy}/2 (${ssx}/18)*5;${ssy}/2
+alias topLeftQuarterWide ${sox};${soy} (${ssx}/18)*5;${ssy}/2
+alias bottomLeftQuarterWide ${sox};${soy}+${ssy}/2 (${ssx}/18)*5;${ssy}/2
 
 # Concrete positions
 alias 1-full move ${fullscreen} ${mon-laptop}
@@ -50,54 +61,84 @@ alias 3-full move ${fullscreen} ${mon-cinema}
 alias 3-right move ${rightHalf} ${mon-cinema}
 alias 3-left move ${leftHalf} ${mon-cinema}
 
+alias 4-middle-col move ${middleWide} ${mon-dell-wide}
+alias 4-topRightQuarter move ${topRightQuarterWide} ${mon-dell-wide}
+alias 4-bottomRightQuarter move ${bottomRightQuarterWide} ${mon-dell-wide}
+alias 4-topLeftQuarter move ${topLeftQuarterWide} ${mon-dell-wide}
+alias 4-bottomLeftQuarter move ${bottomLeftQuarterWide} ${mon-dell-wide}
+
 # Reload Binding
-bind a:f19 relaunch
+bind a:${smash} relaunch
 
 # Move bindings
-bind g:f19 move ${centered}
-bind o:f19 move ${fullscreen}
-bind h:f19 move ${leftHalf}
-bind l:f19 move ${rightHalf}
-bind k:f19 move ${topHalf}
-bind u:f19 move ${topLeftQuarter}
-bind i:f19 move ${topRightQuarter}
-bind n:f19 move ${topLeftQuarter}
-bind u:f19 move ${topLeftQuarter}
+bind g:${smash} move ${centered}
+bind o:${smash} move ${fullscreen}
+bind h:${smash} move ${leftHalf}
+bind l:${smash} move ${rightHalf}
+bind k:${smash} move ${topHalf}
+bind j:${smash} move ${bottomHalf}
+bind u:${smash} move ${topLeftQuarter}
+bind i:${smash} move ${topRightQuarter}
+bind n:${smash} move ${bottomLeftQuarter}
+bind m:${smash} move ${bottomRightQuarter}
+bind c:${smash} move ${middleWide}
 
-bind ;:f19 throw previous
+bind ;:${smash} throw previous
 
 # Applicaton Config
 alias browser 'Google Chrome'
 alias ide 'IntelliJ IDEA'
 alias mailbox 'Mailbox (Beta)'
+alias mail 'Airmail'
+alias chat 'Slack'
+alias messages 'Messages'
 
 # 1 Monitor Layout
-layout 1monitor 'iTerm':REPEAT     ${1-full}
+layout 1monitor 'iTerm2':REPEAT     ${1-full}
 layout 1monitor ${browser}:REPEAT     ${1-full}
 layout 1monitor ${ide}:REPEAT     ${1-full}
-layout 1monitor ${mailbox}:REPEAT     ${1-full}
-layout 1monitor 'HipChat':REPEAT     ${1-full}
+layout 1monitor ${mail}:REPEAT     ${1-full}
+layout 1monitor ${chat}:REPEAT     ${1-full}
+layout 1monitor ${messages}:REPEAT     ${1-full}
 layout 1monitor 'Tweetbot':REPEAT     ${1-full}
 layout 1monitor 'Dash':REPEAT     ${1-full}
+layout 1monitor 'Spotify':REPEAT     ${1-full}
+layout 1monitor 'Preview':REPEAT     ${1-full}
+layout 1monitor 'Bear':REPEAT     ${1-full}
+
+# 2 Monitor Layout (laptop + dell-wide)
+layout 2monitor ${ide}:REPEAT ${4-middle-col}
+layout 2monitor 'iTerm2':REPEAT      ${4-topRightQuarter}
+layout 2monitor ${chat}:REPEAT     ${4-bottomRightQuarter}
+layout 2monitor ${messages}:REPEAT     ${4-bottomRightQuarter}
+layout 2monitor 'Dash':REPEAT     ${4-bottomLeftQuarter}
+layout 2monitor 'Bear':REPEAT     ${4-topLeftQuarter}
+layout 2monitor ${browser}:REPEAT     ${1-full}
+layout 2monitor 'Spotify':REPEAT     ${1-full}
+layout 2monitor 'Preview':REPEAT     ${1-full}
+
 
 # 3 Monitor Layout
-layout 3monitor ${mailbox}:REPEAT     ${1-full}
+layout 3monitor ${mail}:REPEAT     ${1-full}
 layout 3monitor 'Tweetbot':REPEAT     ${1-full}
 layout 3monitor 'Dash':REPEAT     ${1-full}
-kjdd
+
 layout 3monitor ${ide}:REPEAT     ${2-left}
-layout 3monitor 'iTerm':REPEAT      ${2-topRightQuarter}
-layout 3monitor 'HipChat':REPEAT     ${2-bottomRightQuarter}
+layout 3monitor 'iTerm2':REPEAT      ${2-topRightQuarter}
+layout 3monitor ${chat}:REPEAT     ${2-bottomRightQuarter}
+layout 3monitor ${messages}:REPEAT     ${2-bottomRightQuarter}
 
 layout 3monitor ${browser}:REPEAT     ${3-full}
 
 
 default 1monitor resolutions:${mon-laptop}
 default 3monitor resolutions:${mon-laptop};${mon-dell};${mon-cinema}
+default 2monitor resolutions:${mon-laptop};${mon-dell-wide}
 
 # Monitor Setup Bindings
-bind 1:f19 layout 1monitor
-bind 2:f19 layout 3monitor
+bind 1:${smash} layout 1monitor
+bind 2:${smash} layout 2monitor
+bind 3:${smash} layout 3monitor
 
 
 # Window Hints

@@ -1,7 +1,7 @@
 alias reload='source ~/dotfiles/bashrc'
-alias ealias='subl ~/dotfiles/bash/aliases'
+alias ealias='vim ~/dotfiles/bash/aliases'
 alias reloadalias='source ~/dotfiles/bash/aliases'
-alias eenv='subl ~/dotfiles/bash/env'
+alias eenv='vim ~/dotfiles/bash/env'
 alias reloadenv='source ~/dotfiles/bash/env'
 alias eslate='vim ~/dotfiles/bash/slate'
 
@@ -25,7 +25,11 @@ alias f='pushd -0'
 alias goto_it='ssh zthrash@it.int.objectpartners.com'
 alias sqlprofiler='java -jar ~/work/sqlprofiler-0.3-bin/sqlprofiler.jar'
 alias jur='open target/test-reports/html/index.html'
-alias pr='hub pull-request'
+alias pr='hub pull-request -o'
+
+alias gradlew='$HOME/Projects/stash/NEBULA/wrapper/gradlew'
+
+alias vimgo='vim -u ~/.vimrc.go'
 
 alias msgmove='cp ~/.grails/2.1.0/projects/mobile-application/tomcat/work/Tomcat/localhost/_/jawrTmp/text/i18n/messages.js ~/work/virtuwell/mobile-application/web-app/js/i18n/'
 
@@ -68,6 +72,13 @@ function switchJava() {
 	echo "Done!"
 }
 
+# checkout a git pr into a local branch
+function copr() {
+    echo "Checking out PR $1 to local branch"
+    git fetch upstream pull/$1/head:pr-$1
+    git co pr-$1
+}
+
 alias java6='switchJava "1.6*"'
 alias java7='switchJava "1.7*"'
 alias java8='switchJava "1.8*"'
@@ -92,5 +103,24 @@ alias vwpatient='vw && cd patient-application && gvm use grails 2.1.0'
 alias vwstm='vw && cd scheduled-task-manager && gvm use grails 2.1.0'
 alias plove='vw && cd plove && gvm use grails 2.1.0'
 alias spocktalk='cd ~/Documents/Presentations/spock_sf_gug && grunt serve'
+
+#spinnaker
+alias deckpre='API_HOST='https://api-prestaging.spinnaker.mgmt.netflix.net' NETFLIX_MODE=true npm start'
+alias deckprod='API_HOST='https://api.spinnaker.mgmt.netflix.net' NETFLIX_MODE=true npm start'
+alias spin="curl -k -E ~/.spinnaker/keystores/all-services-client.p12:Earigei7Aphai5Ei"
+
+#frontend stuff
+alias cleannode="rm -rf ./node_modules && npm i"
+
+function canaryPass() {
+    echo "Force Passing Canary: $1"
+    http PUT http://mine-main.prod.netflix.net/canaries/"$1"/end result==SUCCESS reason==because
+}
+
+function canaryFail() {
+    echo "Force Failing Canary: $1"
+    http PUT http://mine-main.prod.netflix.net/canaries/"$1"/end result==FAILURE reason==because
+}
+
 
 # eval "$(hub alias -s)"

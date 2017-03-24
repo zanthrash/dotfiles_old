@@ -7,7 +7,7 @@
 [core]
 	quotepath = false
 	excludesfile = /Users/zanthrash/.gitignore_global
-	autocrlf = input
+	pager = diff-highlight | diff-so-fancy | less -r
 [difftool "kdiff3"]
     path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
     trustExitCode = false
@@ -46,3 +46,7 @@
 	smudge = git-media-smudge %f
 [credential]
 	helper = osxkeychain
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
